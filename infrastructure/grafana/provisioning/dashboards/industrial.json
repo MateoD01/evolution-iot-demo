@@ -1,0 +1,105 @@
+{
+  "__inputs": [],
+  "__requires": [],
+  "annotations": { "list": [] },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "links": [],
+  "panels": [
+    {
+      "datasource": { "type": "postgres", "uid": "timescaledb" },
+      "fieldConfig": {
+        "defaults": { "color": { "mode": "palette-classic" } },
+        "overrides": []
+      },
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
+      "id": 1,
+      "options": {
+        "legend": { "calcs": [], "displayMode": "list", "placement": "bottom" },
+        "tooltip": { "mode": "single", "sort": "none" }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawSql": "SELECT time, value FROM telemetry_raw WHERE signal_name = 'speed_rpm' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "A"
+        }
+      ],
+      "title": "Speed RPM — PLC-001",
+      "type": "timeseries"
+    },
+    {
+      "datasource": { "type": "postgres", "uid": "timescaledb" },
+      "fieldConfig": {
+        "defaults": { "color": { "mode": "thresholds" }, "thresholds": { "mode": "absolute", "steps": [{ "color": "green", "value": null }, { "color": "red", "value": 80 }] } },
+        "overrides": []
+      },
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
+      "id": 2,
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"] }, "orientation": "auto", "textMode": "auto", "colorMode": "background" },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawSql": "SELECT time, value FROM telemetry_raw WHERE signal_name = 'temperature_c' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time DESC LIMIT 1",
+          "refId": "A"
+        }
+      ],
+      "title": "Temperature °C — PLC-001",
+      "type": "stat"
+    },
+    {
+      "datasource": { "type": "postgres", "uid": "timescaledb" },
+      "fieldConfig": {
+        "defaults": { "color": { "mode": "palette-classic" } },
+        "overrides": []
+      },
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 8 },
+      "id": 3,
+      "options": {
+        "legend": { "calcs": [], "displayMode": "list", "placement": "bottom" },
+        "tooltip": { "mode": "single", "sort": "none" }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawSql": "SELECT time, value FROM telemetry_raw WHERE signal_name = 'running' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "A"
+        }
+      ],
+      "title": "Running State — PLC-001",
+      "type": "timeseries"
+    },
+    {
+      "datasource": { "type": "postgres", "uid": "timescaledb" },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 8 },
+      "id": 4,
+      "options": { "reduceOptions": { "calcs": ["sum"] }, "orientation": "auto", "textMode": "auto", "colorMode": "value" },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawSql": "SELECT time, value FROM telemetry_raw WHERE signal_name = 'parts_count' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "A"
+        }
+      ],
+      "title": "Parts Count — PLC-001",
+      "type": "stat"
+    }
+  ],
+  "schemaVersion": 38,
+  "tags": ["industrial", "iot", "plc"],
+  "time": { "from": "now-30m", "to": "now" },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Industrial Telemetry",
+  "uid": "industrial-telemetry",
+  "version": 1
+}
