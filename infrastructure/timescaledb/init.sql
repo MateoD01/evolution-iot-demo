@@ -3,7 +3,7 @@ CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 -- Reference table for machines / PLCs
 CREATE TABLE IF NOT EXISTS machines (
   id          SERIAL PRIMARY KEY,
-  name        VARCHAR(100) NOT NULL UNIQUE,
+  name        TEXT         NOT NULL UNIQUE,
   description TEXT,
   created_at  TIMESTAMPTZ  NOT NULL DEFAULT NOW()
 );
@@ -12,9 +12,9 @@ CREATE TABLE IF NOT EXISTS machines (
 CREATE TABLE IF NOT EXISTS telemetry_raw (
   time        TIMESTAMPTZ  NOT NULL,
   machine_id  INTEGER      NOT NULL REFERENCES machines(id),
-  signal_name VARCHAR(100) NOT NULL,
+  signal_name TEXT         NOT NULL,
   value       DOUBLE PRECISION NOT NULL,
-  unit        VARCHAR(20),
+  unit        TEXT,
   quality     SMALLINT     NOT NULL DEFAULT 192   -- OPC-UA Good quality
 );
 
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS processed_events (
   id               BIGSERIAL,
   time             TIMESTAMPTZ      NOT NULL,
   machine_id       INTEGER          NOT NULL REFERENCES machines(id),
-  event_type       VARCHAR(100)     NOT NULL,
+  event_type       TEXT             NOT NULL,
   duration_seconds DOUBLE PRECISION,
   metadata         JSONB,
   created_at       TIMESTAMPTZ      NOT NULL DEFAULT NOW()
