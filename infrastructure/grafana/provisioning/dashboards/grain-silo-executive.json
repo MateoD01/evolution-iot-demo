@@ -2,7 +2,7 @@
   "__inputs": [],
   "__requires": [],
   "annotations": { "list": [] },
-  "description": "Executive plant operations overview — Grain Silo Industrial Plant (PLC-001)",
+  "description": "Resumen ejecutivo de operaciones — Planta de Acopio de Granos (PLC-001)",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
@@ -14,7 +14,7 @@
       "collapsed": false,
       "gridPos": { "h": 1, "w": 24, "x": 0, "y": 0 },
       "id": 1,
-      "title": "PLANT STATUS — KEY PERFORMANCE INDICATORS",
+      "title": "ESTADO DE PLANTA — INDICADORES CLAVE DE RENDIMIENTO",
       "type": "row"
     },
 
@@ -58,7 +58,7 @@
           "refId": "A"
         }
       ],
-      "title": "Plant Availability",
+      "title": "Disponibilidad de Planta",
       "type": "stat"
     },
 
@@ -97,7 +97,7 @@
           "refId": "A"
         }
       ],
-      "title": "Intake Throughput",
+      "title": "Caudal de Recepción",
       "type": "stat"
     },
 
@@ -141,7 +141,7 @@
           "refId": "A"
         }
       ],
-      "title": "Chain Efficiency",
+      "title": "Eficiencia de Cadena",
       "type": "stat"
     },
 
@@ -185,7 +185,7 @@
           "refId": "A"
         }
       ],
-      "title": "Output Humidity (Dryer)",
+      "title": "Humedad de Salida — Secadora",
       "type": "stat"
     },
 
@@ -231,7 +231,7 @@
           "refId": "A"
         }
       ],
-      "title": "Wet Silo Level",
+      "title": "Nivel — Silo Húmedo",
       "type": "stat"
     },
 
@@ -275,7 +275,7 @@
           "refId": "A"
         }
       ],
-      "title": "Dry Silo Level",
+      "title": "Nivel — Silo Seco",
       "type": "stat"
     },
 
@@ -283,7 +283,7 @@
       "collapsed": false,
       "gridPos": { "h": 1, "w": 24, "x": 0, "y": 6 },
       "id": 8,
-      "title": "ASSET RUNNING STATE",
+      "title": "ESTADO OPERATIVO DE EQUIPOS",
       "type": "row"
     },
 
@@ -303,8 +303,8 @@
             {
               "type": "value",
               "options": {
-                "0": { "color": "red",   "index": 0, "text": "STOPPED" },
-                "1": { "color": "green", "index": 1, "text": "RUNNING" }
+                "0": { "color": "red",   "index": 0, "text": "DETENIDO" },
+                "1": { "color": "green", "index": 1, "text": "EN MARCHA" }
               }
             }
           ]
@@ -350,8 +350,8 @@
             {
               "type": "value",
               "options": {
-                "0": { "color": "red",   "index": 0, "text": "STOPPED" },
-                "1": { "color": "green", "index": 1, "text": "RUNNING" }
+                "0": { "color": "red",   "index": 0, "text": "DETENIDO" },
+                "1": { "color": "green", "index": 1, "text": "EN MARCHA" }
               }
             }
           ]
@@ -397,8 +397,8 @@
             {
               "type": "value",
               "options": {
-                "0": { "color": "red",   "index": 0, "text": "STOPPED" },
-                "1": { "color": "green", "index": 1, "text": "RUNNING" }
+                "0": { "color": "red",   "index": 0, "text": "DETENIDO" },
+                "1": { "color": "green", "index": 1, "text": "EN MARCHA" }
               }
             }
           ]
@@ -424,7 +424,7 @@
           "refId": "A"
         }
       ],
-      "title": "NORIA-01  ★ CRITICAL PATH",
+      "title": "NORIA-01  ★ RUTA CRÍTICA",
       "type": "stat"
     },
 
@@ -444,8 +444,8 @@
             {
               "type": "value",
               "options": {
-                "0": { "color": "red",   "index": 0, "text": "STOPPED" },
-                "1": { "color": "green", "index": 1, "text": "RUNNING" }
+                "0": { "color": "red",   "index": 0, "text": "DETENIDO" },
+                "1": { "color": "green", "index": 1, "text": "EN MARCHA" }
               }
             }
           ]
@@ -491,8 +491,8 @@
             {
               "type": "value",
               "options": {
-                "0": { "color": "red",   "index": 0, "text": "STOPPED" },
-                "1": { "color": "green", "index": 1, "text": "RUNNING" }
+                "0": { "color": "red",   "index": 0, "text": "DETENIDO" },
+                "1": { "color": "green", "index": 1, "text": "EN MARCHA" }
               }
             }
           ]
@@ -539,7 +539,7 @@
             {
               "type": "value",
               "options": {
-                "0": { "color": "green", "index": 0, "text": "ALL CLEAR" }
+                "0": { "color": "green", "index": 0, "text": "SIN ALARMAS" }
               }
             }
           ]
@@ -565,7 +565,7 @@
           "refId": "A"
         }
       ],
-      "title": "Active Alarms",
+      "title": "Alarmas Activas",
       "type": "stat"
     },
 
@@ -573,7 +573,7 @@
       "collapsed": false,
       "gridPos": { "h": 1, "w": 24, "x": 0, "y": 11 },
       "id": 15,
-      "title": "RUNNING STATE TIMELINE",
+      "title": "LÍNEA DE TIEMPO — ESTADO DE EQUIPOS",
       "type": "row"
     },
 
@@ -591,8 +591,8 @@
             {
               "type": "value",
               "options": {
-                "0": { "color": "red",   "index": 0, "text": "STOPPED" },
-                "1": { "color": "green", "index": 1, "text": "RUNNING" }
+                "0": { "color": "red",   "index": 0, "text": "DETENIDO" },
+                "1": { "color": "green", "index": 1, "text": "EN MARCHA" }
               }
             }
           ],
@@ -659,7 +659,7 @@
           "refId": "E"
         }
       ],
-      "title": "Asset Running State",
+      "title": "Estado Operativo de Equipos",
       "type": "state-timeline"
     },
 
@@ -667,7 +667,7 @@
       "collapsed": false,
       "gridPos": { "h": 1, "w": 24, "x": 0, "y": 18 },
       "id": 17,
-      "title": "MATERIAL FLOW — THROUGHPUT CASCADE",
+      "title": "FLUJO DE MATERIAL — CASCADA DE CAUDALES",
       "type": "row"
     },
 
@@ -680,7 +680,7 @@
             "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
-            "axisLabel": "Throughput (t/h)",
+            "axisLabel": "Caudal (t/h)",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -776,7 +776,7 @@
           "refId": "D"
         }
       ],
-      "title": "Throughput Cascade — VOLCABLE → REDLER → NORIA → DISTRIBUIDORA  (t/h)",
+      "title": "Cascada de Caudales — VOLCABLE → REDLER → NORIA → DISTRIBUIDORA  (t/h)",
       "type": "timeseries"
     },
 
@@ -784,7 +784,7 @@
       "collapsed": false,
       "gridPos": { "h": 1, "w": 24, "x": 0, "y": 28 },
       "id": 19,
-      "title": "MECHANICAL HEALTH — BEARINGS & VIBRATION",
+      "title": "SALUD MECÁNICA — RODAMIENTOS Y VIBRACIÓN",
       "type": "row"
     },
 
@@ -828,7 +828,7 @@
           "refId": "A"
         }
       ],
-      "title": "NORIA-01 — Bearing Temp",
+      "title": "NORIA-01 — Temp. de Rodamiento",
       "type": "gauge"
     },
 
@@ -872,7 +872,7 @@
           "refId": "A"
         }
       ],
-      "title": "NORIA-01 — Vibration  (mm/s · ISO 10816)",
+      "title": "NORIA-01 — Vibración  (mm/s · ISO 10816)",
       "type": "gauge"
     },
 
@@ -916,7 +916,7 @@
           "refId": "A"
         }
       ],
-      "title": "REDLER-01 — Bearing Temp",
+      "title": "REDLER-01 — Temp. de Rodamiento",
       "type": "gauge"
     },
 
@@ -960,7 +960,7 @@
           "refId": "A"
         }
       ],
-      "title": "REDLER-01 — Vibration  (mm/s · ISO 10816)",
+      "title": "REDLER-01 — Vibración  (mm/s · ISO 10816)",
       "type": "gauge"
     },
 
@@ -968,7 +968,7 @@
       "collapsed": false,
       "gridPos": { "h": 1, "w": 24, "x": 0, "y": 37 },
       "id": 24,
-      "title": "DRYING PROCESS — QUALITY CONTROL",
+      "title": "PROCESO DE SECADO — CONTROL DE CALIDAD",
       "type": "row"
     },
 
@@ -1012,7 +1012,7 @@
           "refId": "A"
         }
       ],
-      "title": "SECADORA-01 — Chamber Temp",
+      "title": "SECADORA-01 — Temperatura de Cámara",
       "type": "gauge"
     },
 
@@ -1055,7 +1055,7 @@
           "refId": "A"
         }
       ],
-      "title": "SECADORA-01 — Output Humidity",
+      "title": "SECADORA-01 — Humedad de Grano Saliente",
       "type": "gauge"
     },
 
@@ -1143,7 +1143,7 @@
           "refId": "B"
         }
       ],
-      "title": "Dryer — Chamber Temp vs Output Humidity",
+      "title": "Secadora — Temp. de Cámara vs Humedad de Salida",
       "type": "timeseries"
     },
 
@@ -1151,7 +1151,7 @@
       "collapsed": false,
       "gridPos": { "h": 1, "w": 24, "x": 0, "y": 46 },
       "id": 28,
-      "title": "SILO LEVELS — BUFFER MANAGEMENT",
+      "title": "NIVELES DE SILO — GESTIÓN DE INVENTARIO",
       "type": "row"
     },
 
@@ -1196,7 +1196,7 @@
           "refId": "A"
         }
       ],
-      "title": "SILO-HUMEDO-01  (alarm < 8% / > 92%)",
+      "title": "SILO-HÚMEDO-01  (alarma < 8% / > 92%)",
       "type": "gauge"
     },
 
@@ -1239,7 +1239,7 @@
           "refId": "A"
         }
       ],
-      "title": "SILO-SECO-01  (alarm > 94%)",
+      "title": "SILO-SECO-01  (alarma > 94%)",
       "type": "gauge"
     },
 
@@ -1252,7 +1252,7 @@
             "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
-            "axisLabel": "Capacity (%)",
+            "axisLabel": "Capacidad (%)",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -1319,17 +1319,17 @@
           "refId": "B"
         }
       ],
-      "title": "Silo Level Trends",
+      "title": "Tendencia de Niveles de Silo",
       "type": "timeseries"
     }
 
   ],
   "schemaVersion": 38,
-  "tags": ["industrial", "iot", "grain-silo", "executive", "scada"],
+  "tags": ["industrial", "iot", "grain-silo", "ejecutivo", "scada", "acopio"],
   "time": { "from": "now-1h", "to": "now" },
   "timepicker": {},
   "timezone": "browser",
-  "title": "Plant Operations Overview",
+  "title": "Panel de Operaciones de Planta",
   "uid": "grain-silo-executive",
-  "version": 1
+  "version": 2
 }
