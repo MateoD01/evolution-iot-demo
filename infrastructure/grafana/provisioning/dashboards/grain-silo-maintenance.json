@@ -1,0 +1,1136 @@
+{
+  "__inputs": [],
+  "__requires": [],
+  "annotations": { "list": [] },
+  "description": "Monitoreo técnico y mantenimiento — Planta de Acopio de Granos (PLC-001)",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "links": [],
+  "refresh": "30s",
+  "panels": [
+
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 0 },
+      "id": 1,
+      "title": "KPI DE MANTENIMIENTO",
+      "type": "row"
+    },
+
+    {
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "decimals": 1,
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "red",    "value": null },
+              { "color": "orange", "value": 85   },
+              { "color": "green",  "value": 95   }
+            ]
+          },
+          "unit": "percent",
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 5, "w": 4, "x": 0, "y": 1 },
+      "id": 2,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT ROUND((AVG(value) * 100)::numeric, 1) AS \"Disponibilidad\"\nFROM telemetry_raw\nWHERE signal_name = 'noria_01_running' AND machine_id = 1 AND $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Disponibilidad NORIA-01",
+      "type": "stat"
+    },
+
+    {
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "decimals": 1,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green",  "value": null },
+              { "color": "orange", "value": 60   },
+              { "color": "red",    "value": 120  }
+            ]
+          },
+          "unit": "s",
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 5, "w": 4, "x": 4, "y": 1 },
+      "id": 3,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT COALESCE(ROUND(AVG(duration_seconds)::numeric, 1), 0) AS \"MTTR (s)\"\nFROM processed_events\nWHERE machine_id = 1 AND event_type = 'DOWNTIME_DETECTED' AND $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "MTTR — Tiempo Medio de Recuperación",
+      "type": "stat"
+    },
+
+    {
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "decimals": 0,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green",  "value": null },
+              { "color": "orange", "value": 5    },
+              { "color": "red",    "value": 15   }
+            ]
+          },
+          "unit": "short",
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 5, "w": 4, "x": 8, "y": 1 },
+      "id": 4,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT COUNT(*) AS \"Paradas\"\nFROM processed_events\nWHERE machine_id = 1 AND event_type = 'MACHINE_STOPPED' AND $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Paradas en Ventana",
+      "type": "stat"
+    },
+
+    {
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "decimals": 0,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "red",   "value": 1    }
+            ]
+          },
+          "unit": "short",
+          "mappings": [
+            {
+              "type": "value",
+              "options": {
+                "0": { "color": "green", "index": 0, "text": "SIN ALARMAS" }
+              }
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 5, "w": 4, "x": 12, "y": 1 },
+      "id": 5,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT COALESCE(SUM(sub.value)::int, 0) AS \"Alarmas\"\nFROM (\n  SELECT DISTINCT ON (signal_name) value\n  FROM telemetry_raw\n  WHERE machine_id = 1 AND signal_name LIKE '%_alarm_active'\n  ORDER BY signal_name, time DESC\n) sub",
+          "refId": "A"
+        }
+      ],
+      "title": "Alarmas Activas",
+      "type": "stat"
+    },
+
+    {
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "decimals": 3,
+          "min": 0,
+          "max": 9,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green",  "value": null },
+              { "color": "yellow", "value": 2.3  },
+              { "color": "orange", "value": 4.5  },
+              { "color": "red",    "value": 6.5  }
+            ]
+          },
+          "unit": "short",
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 5, "w": 4, "x": 16, "y": 1 },
+      "id": 6,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT ROUND(value::numeric, 3) AS \"Vibración (mm/s)\"\nFROM telemetry_raw\nWHERE signal_name = 'noria_01_vibration_mm_s' AND machine_id = 1\nORDER BY time DESC LIMIT 1",
+          "refId": "A"
+        }
+      ],
+      "title": "Vibración Actual — NORIA-01  (mm/s)",
+      "type": "stat"
+    },
+
+    {
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "decimals": 1,
+          "min": 0,
+          "max": 90,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "blue",   "value": null },
+              { "color": "green",  "value": 30   },
+              { "color": "orange", "value": 68   },
+              { "color": "red",    "value": 78   }
+            ]
+          },
+          "unit": "celsius",
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 5, "w": 4, "x": 20, "y": 1 },
+      "id": 7,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT ROUND(GREATEST(n.value, r.value)::numeric, 1) AS \"Temp. Máx. (°C)\"\nFROM\n  (SELECT value FROM telemetry_raw WHERE signal_name = 'noria_01_temperature_c'  AND machine_id = 1 ORDER BY time DESC LIMIT 1) n,\n  (SELECT value FROM telemetry_raw WHERE signal_name = 'redler_01_temperature_c' AND machine_id = 1 ORDER BY time DESC LIMIT 1) r",
+          "refId": "A"
+        }
+      ],
+      "title": "Temp. Máx. Rodamiento",
+      "type": "stat"
+    },
+
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 6 },
+      "id": 8,
+      "title": "ESTADO DE ALARMAS — LÍNEA DE TIEMPO",
+      "type": "row"
+    },
+
+    {
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "custom": {
+            "fillOpacity": 85,
+            "hideFrom": { "legend": false, "tooltip": false, "viz": false },
+            "lineWidth": 0
+          },
+          "mappings": [
+            {
+              "type": "value",
+              "options": {
+                "0": { "color": "green", "index": 0, "text": "NORMAL" },
+                "1": { "color": "red",   "index": 1, "text": "ALARMA" }
+              }
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "red",   "value": 1    }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 5, "w": 24, "x": 0, "y": 7 },
+      "id": 9,
+      "options": {
+        "alignValue": "center",
+        "fillOpacity": 85,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": true,
+        "rowHeight": 0.8,
+        "showValue": "never",
+        "tooltip": { "mode": "single", "sort": "none" }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value AS \"VOLCABLE-01\" FROM telemetry_raw WHERE signal_name = 'volcable_01_alarm_active' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "A"
+        },
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value AS \"REDLER-01\" FROM telemetry_raw WHERE signal_name = 'redler_01_alarm_active' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "B"
+        },
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value AS \"NORIA-01\" FROM telemetry_raw WHERE signal_name = 'noria_01_alarm_active' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "C"
+        },
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value AS \"DISTRIBUIDORA-01\" FROM telemetry_raw WHERE signal_name = 'distribuidora_01_alarm_active' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "D"
+        },
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value AS \"SECADORA-01\" FROM telemetry_raw WHERE signal_name = 'secadora_01_alarm_active' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "E"
+        }
+      ],
+      "title": "Alarmas por Equipo",
+      "type": "state-timeline"
+    },
+
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 12 },
+      "id": 10,
+      "title": "CORRIENTES DE MOTOR Y DISPONIBILIDAD POR EQUIPO",
+      "type": "row"
+    },
+
+    {
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "decimals": 1,
+          "min": 0,
+          "max": 165,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green",  "value": null },
+              { "color": "orange", "value": 100  },
+              { "color": "red",    "value": 140  }
+            ]
+          },
+          "unit": "amp",
+          "mappings": []
+        },
+        "overrides": [
+          {
+            "matcher": { "id": "byName", "options": "VOLCABLE-01" },
+            "properties": [
+              { "id": "max", "value": 80 },
+              { "id": "thresholds", "value": {
+                "mode": "absolute",
+                "steps": [
+                  { "color": "green",  "value": null },
+                  { "color": "orange", "value": 48   },
+                  { "color": "red",    "value": 65   }
+                ]
+              }}
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "REDLER-01" },
+            "properties": [
+              { "id": "max", "value": 100 },
+              { "id": "thresholds", "value": {
+                "mode": "absolute",
+                "steps": [
+                  { "color": "green",  "value": null },
+                  { "color": "orange", "value": 70   },
+                  { "color": "red",    "value": 85   }
+                ]
+              }}
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "NORIA-01" },
+            "properties": [
+              { "id": "max", "value": 135 },
+              { "id": "thresholds", "value": {
+                "mode": "absolute",
+                "steps": [
+                  { "color": "green",  "value": null },
+                  { "color": "orange", "value": 90   },
+                  { "color": "red",    "value": 115  }
+                ]
+              }}
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "DISTRIBUIDORA-01" },
+            "properties": [
+              { "id": "max", "value": 40 },
+              { "id": "thresholds", "value": {
+                "mode": "absolute",
+                "steps": [
+                  { "color": "green",  "value": null },
+                  { "color": "orange", "value": 25   },
+                  { "color": "red",    "value": 34   }
+                ]
+              }}
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "SECADORA-01" },
+            "properties": [
+              { "id": "max", "value": 165 },
+              { "id": "thresholds", "value": {
+                "mode": "absolute",
+                "steps": [
+                  { "color": "green",  "value": null },
+                  { "color": "orange", "value": 120  },
+                  { "color": "red",    "value": 148  }
+                ]
+              }}
+            ]
+          }
+        ]
+      },
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 13 },
+      "id": 11,
+      "options": {
+        "displayMode": "lcd",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "showUnfilled": true,
+        "valueMode": "color"
+      },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value AS \"VOLCABLE-01\" FROM telemetry_raw WHERE signal_name = 'volcable_01_current_a' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "A"
+        },
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value AS \"REDLER-01\" FROM telemetry_raw WHERE signal_name = 'redler_01_current_a' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "B"
+        },
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value AS \"NORIA-01\" FROM telemetry_raw WHERE signal_name = 'noria_01_current_a' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "C"
+        },
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value AS \"DISTRIBUIDORA-01\" FROM telemetry_raw WHERE signal_name = 'distribuidora_01_current_a' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "D"
+        },
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value AS \"SECADORA-01\" FROM telemetry_raw WHERE signal_name = 'secadora_01_current_a' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "E"
+        }
+      ],
+      "title": "Corriente de Motor por Equipo  (A)",
+      "type": "bargauge"
+    },
+
+    {
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "decimals": 1,
+          "min": 0,
+          "max": 100,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "red",    "value": null },
+              { "color": "orange", "value": 85   },
+              { "color": "green",  "value": 95   }
+            ]
+          },
+          "unit": "percent",
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 13 },
+      "id": 12,
+      "options": {
+        "displayMode": "lcd",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": { "calcs": ["mean"], "fields": "", "values": false },
+        "showUnfilled": true,
+        "valueMode": "color"
+      },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value * 100 AS \"VOLCABLE-01\" FROM telemetry_raw WHERE signal_name = 'volcable_01_running' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "A"
+        },
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value * 100 AS \"REDLER-01\" FROM telemetry_raw WHERE signal_name = 'redler_01_running' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "B"
+        },
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value * 100 AS \"NORIA-01\" FROM telemetry_raw WHERE signal_name = 'noria_01_running' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "C"
+        },
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value * 100 AS \"DISTRIBUIDORA-01\" FROM telemetry_raw WHERE signal_name = 'distribuidora_01_running' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "D"
+        },
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value * 100 AS \"SECADORA-01\" FROM telemetry_raw WHERE signal_name = 'secadora_01_running' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "E"
+        }
+      ],
+      "title": "Disponibilidad por Equipo — Ventana Seleccionada  (%)",
+      "type": "bargauge"
+    },
+
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 21 },
+      "id": 13,
+      "title": "VIBRACIÓN DE RODAMIENTOS — ISO 10816",
+      "type": "row"
+    },
+
+    {
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "fixed", "fixedColor": "#FADE2A" },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Vibración (mm/s)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 5,
+            "gradientMode": "none",
+            "hideFrom": { "legend": false, "tooltip": false, "viz": false },
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": { "type": "linear" },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": { "group": "A", "mode": "none" },
+            "thresholdsStyle": { "mode": "area" }
+          },
+          "min": 0,
+          "max": 9,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green",  "value": null },
+              { "color": "yellow", "value": 2.3  },
+              { "color": "orange", "value": 4.5  },
+              { "color": "red",    "value": 6.5  }
+            ]
+          },
+          "unit": "short",
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 9, "w": 12, "x": 0, "y": 22 },
+      "id": 14,
+      "options": {
+        "legend": {
+          "calcs": ["mean", "lastNotNull", "max"],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": { "mode": "single", "sort": "none" }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value AS \"NORIA-01 Vibración\" FROM telemetry_raw WHERE signal_name = 'noria_01_vibration_mm_s' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "A"
+        }
+      ],
+      "title": "NORIA-01 — Vibración  (mm/s)  ·  Zona A <2.3 · B 2.3–4.5 · C 4.5–6.5 · D >6.5",
+      "type": "timeseries"
+    },
+
+    {
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "fixed", "fixedColor": "#73BF69" },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Vibración (mm/s)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 5,
+            "gradientMode": "none",
+            "hideFrom": { "legend": false, "tooltip": false, "viz": false },
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": { "type": "linear" },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": { "group": "A", "mode": "none" },
+            "thresholdsStyle": { "mode": "area" }
+          },
+          "min": 0,
+          "max": 7,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green",  "value": null },
+              { "color": "yellow", "value": 2.0  },
+              { "color": "orange", "value": 4.0  },
+              { "color": "red",    "value": 5.0  }
+            ]
+          },
+          "unit": "short",
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 9, "w": 12, "x": 12, "y": 22 },
+      "id": 15,
+      "options": {
+        "legend": {
+          "calcs": ["mean", "lastNotNull", "max"],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": { "mode": "single", "sort": "none" }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value AS \"REDLER-01 Vibración\" FROM telemetry_raw WHERE signal_name = 'redler_01_vibration_mm_s' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "A"
+        }
+      ],
+      "title": "REDLER-01 — Vibración  (mm/s)  ·  Zona A <2.0 · B 2.0–4.0 · C 4.0–5.0 · D >5.0",
+      "type": "timeseries"
+    },
+
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 31 },
+      "id": 16,
+      "title": "TEMPERATURA DE RODAMIENTOS — TENDENCIA",
+      "type": "row"
+    },
+
+    {
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "fixed", "fixedColor": "#FF9830" },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Temperatura (°C)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 8,
+            "gradientMode": "opacity",
+            "hideFrom": { "legend": false, "tooltip": false, "viz": false },
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": { "type": "linear" },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": { "group": "A", "mode": "none" },
+            "thresholdsStyle": { "mode": "area" }
+          },
+          "min": 24,
+          "max": 90,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "blue",   "value": null },
+              { "color": "green",  "value": 40   },
+              { "color": "yellow", "value": 60   },
+              { "color": "orange", "value": 68   },
+              { "color": "red",    "value": 78   }
+            ]
+          },
+          "unit": "celsius",
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 9, "w": 12, "x": 0, "y": 32 },
+      "id": 17,
+      "options": {
+        "legend": {
+          "calcs": ["mean", "lastNotNull", "max"],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": { "mode": "single", "sort": "none" }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value AS \"NORIA-01 Temp.\" FROM telemetry_raw WHERE signal_name = 'noria_01_temperature_c' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "A"
+        }
+      ],
+      "title": "NORIA-01 — Temperatura de Rodamiento  ·  Alarma > 78 °C",
+      "type": "timeseries"
+    },
+
+    {
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "fixed", "fixedColor": "#5794F2" },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Temperatura (°C)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 8,
+            "gradientMode": "opacity",
+            "hideFrom": { "legend": false, "tooltip": false, "viz": false },
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": { "type": "linear" },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": { "group": "A", "mode": "none" },
+            "thresholdsStyle": { "mode": "area" }
+          },
+          "min": 18,
+          "max": 75,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "blue",   "value": null },
+              { "color": "green",  "value": 28   },
+              { "color": "yellow", "value": 45   },
+              { "color": "orange", "value": 55   },
+              { "color": "red",    "value": 65   }
+            ]
+          },
+          "unit": "celsius",
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 9, "w": 12, "x": 12, "y": 32 },
+      "id": 18,
+      "options": {
+        "legend": {
+          "calcs": ["mean", "lastNotNull", "max"],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": { "mode": "single", "sort": "none" }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value AS \"REDLER-01 Temp.\" FROM telemetry_raw WHERE signal_name = 'redler_01_temperature_c' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "A"
+        }
+      ],
+      "title": "REDLER-01 — Temperatura de Rodamiento  ·  Alarma > 65 °C",
+      "type": "timeseries"
+    },
+
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 41 },
+      "id": 19,
+      "title": "EVENTOS DE PARADA Y FRECUENCIA",
+      "type": "row"
+    },
+
+    {
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": { "type": "auto" },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [{ "color": "green", "value": null }]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": { "id": "byName", "options": "Tipo de Evento" },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "MACHINE_STOPPED":   { "color": "red",    "index": 0, "text": "PARADA"         },
+                      "MACHINE_RESUMED":   { "color": "green",  "index": 1, "text": "REINICIO"       },
+                      "DOWNTIME_DETECTED": { "color": "orange", "index": 2, "text": "TIEMPO PARADO"  }
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": { "type": "color-background", "mode": "basic" }
+              },
+              { "id": "custom.width", "value": 160 }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "Duración (s)" },
+            "properties": [
+              { "id": "custom.width", "value": 110 },
+              { "id": "custom.align", "value": "right" }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "Fecha/Hora" },
+            "properties": [
+              { "id": "custom.width", "value": 190 }
+            ]
+          }
+        ]
+      },
+      "gridPos": { "h": 9, "w": 14, "x": 0, "y": 42 },
+      "id": 20,
+      "options": {
+        "footer": { "countRows": false, "enablePagination": true, "reducer": ["sum"], "show": false },
+        "frameIndex": 0,
+        "showHeader": true,
+        "sortBy": []
+      },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  time                                                          AS \"Fecha/Hora\",\n  event_type                                                    AS \"Tipo de Evento\",\n  COALESCE(ROUND(duration_seconds::numeric, 1)::text, '—')      AS \"Duración (s)\"\nFROM processed_events\nWHERE machine_id = 1\n  AND $__timeFilter(time)\nORDER BY time DESC\nLIMIT 100",
+          "refId": "A"
+        }
+      ],
+      "title": "Registro de Eventos de Parada",
+      "type": "table"
+    },
+
+    {
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "fixed", "fixedColor": "#F2495C" },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Paradas",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 75,
+            "gradientMode": "none",
+            "hideFrom": { "legend": false, "tooltip": false, "viz": false },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": { "type": "linear" },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": { "group": "A", "mode": "none" },
+            "thresholdsStyle": { "mode": "off" }
+          },
+          "min": 0,
+          "unit": "short",
+          "decimals": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [{ "color": "red", "value": null }]
+          },
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 9, "w": 10, "x": 14, "y": 42 },
+      "id": 21,
+      "options": {
+        "legend": {
+          "calcs": ["sum"],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": { "mode": "single", "sort": "none" }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  time_bucket('30 minutes', time) AS time,\n  COUNT(*)                        AS \"Paradas\"\nFROM processed_events\nWHERE machine_id = 1\n  AND event_type = 'MACHINE_STOPPED'\n  AND $__timeFilter(time)\nGROUP BY time_bucket('30 minutes', time)\nORDER BY time",
+          "refId": "A"
+        }
+      ],
+      "title": "Frecuencia de Paradas — Intervalos de 30 min",
+      "type": "timeseries"
+    },
+
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 51 },
+      "id": 22,
+      "title": "TIMELINE DE ESTADO OPERATIVO",
+      "type": "row"
+    },
+
+    {
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "custom": {
+            "fillOpacity": 80,
+            "hideFrom": { "legend": false, "tooltip": false, "viz": false },
+            "lineWidth": 0
+          },
+          "mappings": [
+            {
+              "type": "value",
+              "options": {
+                "0": { "color": "red",   "index": 0, "text": "DETENIDO"  },
+                "1": { "color": "green", "index": 1, "text": "EN MARCHA" }
+              }
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "red",   "value": null },
+              { "color": "green", "value": 1    }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 6, "w": 24, "x": 0, "y": 52 },
+      "id": 23,
+      "options": {
+        "alignValue": "center",
+        "fillOpacity": 80,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": true,
+        "rowHeight": 0.85,
+        "showValue": "never",
+        "tooltip": { "mode": "single", "sort": "none" }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value AS \"VOLCABLE-01\" FROM telemetry_raw WHERE signal_name = 'volcable_01_running' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "A"
+        },
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value AS \"REDLER-01\" FROM telemetry_raw WHERE signal_name = 'redler_01_running' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "B"
+        },
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value AS \"NORIA-01\" FROM telemetry_raw WHERE signal_name = 'noria_01_running' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "C"
+        },
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value AS \"DISTRIBUIDORA-01\" FROM telemetry_raw WHERE signal_name = 'distribuidora_01_running' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "D"
+        },
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, value AS \"SECADORA-01\" FROM telemetry_raw WHERE signal_name = 'secadora_01_running' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "refId": "E"
+        }
+      ],
+      "title": "Estado Operativo de Equipos — EN MARCHA / DETENIDO",
+      "type": "state-timeline"
+    }
+
+  ],
+  "schemaVersion": 38,
+  "tags": ["industrial", "iot", "grain-silo", "mantenimiento", "scada", "confiabilidad"],
+  "time": { "from": "now-3h", "to": "now" },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Monitoreo Técnico y Mantenimiento",
+  "uid": "grain-silo-maintenance",
+  "version": 1
+}
