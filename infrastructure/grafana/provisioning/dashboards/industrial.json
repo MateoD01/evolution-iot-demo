@@ -8,7 +8,7 @@
   "links": [],
   "panels": [
     {
-      "datasource": { "type": "postgres", "uid": "timescaledb" },
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
       "fieldConfig": {
         "defaults": { "color": { "mode": "palette-classic" } },
         "overrides": []
@@ -21,8 +21,9 @@
       },
       "targets": [
         {
-          "datasource": { "type": "postgres", "uid": "timescaledb" },
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
           "format": "time_series",
+          "rawQuery": true,
           "rawSql": "SELECT time, value FROM telemetry_raw WHERE signal_name = 'speed_rpm' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
           "refId": "A"
         }
@@ -31,9 +32,20 @@
       "type": "timeseries"
     },
     {
-      "datasource": { "type": "postgres", "uid": "timescaledb" },
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
       "fieldConfig": {
-        "defaults": { "color": { "mode": "thresholds" }, "thresholds": { "mode": "absolute", "steps": [{ "color": "green", "value": null }, { "color": "red", "value": 80 }] } },
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "orange", "value": 70 },
+              { "color": "red", "value": 80 }
+            ]
+          },
+          "unit": "celsius"
+        },
         "overrides": []
       },
       "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
@@ -41,9 +53,10 @@
       "options": { "reduceOptions": { "calcs": ["lastNotNull"] }, "orientation": "auto", "textMode": "auto", "colorMode": "background" },
       "targets": [
         {
-          "datasource": { "type": "postgres", "uid": "timescaledb" },
-          "format": "time_series",
-          "rawSql": "SELECT time, value FROM telemetry_raw WHERE signal_name = 'temperature_c' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time DESC LIMIT 1",
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT value FROM telemetry_raw WHERE signal_name = 'temperature_c' AND machine_id = 1 ORDER BY time DESC LIMIT 1",
           "refId": "A"
         }
       ],
@@ -51,7 +64,7 @@
       "type": "stat"
     },
     {
-      "datasource": { "type": "postgres", "uid": "timescaledb" },
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
       "fieldConfig": {
         "defaults": { "color": { "mode": "palette-classic" } },
         "overrides": []
@@ -64,8 +77,9 @@
       },
       "targets": [
         {
-          "datasource": { "type": "postgres", "uid": "timescaledb" },
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
           "format": "time_series",
+          "rawQuery": true,
           "rawSql": "SELECT time, value FROM telemetry_raw WHERE signal_name = 'running' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
           "refId": "A"
         }
@@ -74,9 +88,9 @@
       "type": "timeseries"
     },
     {
-      "datasource": { "type": "postgres", "uid": "timescaledb" },
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
       "fieldConfig": {
-        "defaults": {},
+        "defaults": { "color": { "mode": "fixed", "fixedColor": "blue" } },
         "overrides": []
       },
       "gridPos": { "h": 8, "w": 12, "x": 12, "y": 8 },
@@ -84,9 +98,10 @@
       "options": { "reduceOptions": { "calcs": ["sum"] }, "orientation": "auto", "textMode": "auto", "colorMode": "value" },
       "targets": [
         {
-          "datasource": { "type": "postgres", "uid": "timescaledb" },
-          "format": "time_series",
-          "rawSql": "SELECT time, value FROM telemetry_raw WHERE signal_name = 'parts_count' AND machine_id = 1 AND $__timeFilter(time) ORDER BY time",
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "timescaledb" },
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT COALESCE(SUM(value), 0) AS parts_count FROM telemetry_raw WHERE signal_name = 'parts_count' AND machine_id = 1 AND $__timeFilter(time)",
           "refId": "A"
         }
       ],
@@ -101,5 +116,5 @@
   "timezone": "browser",
   "title": "Industrial Telemetry",
   "uid": "industrial-telemetry",
-  "version": 1
+  "version": 2
 }

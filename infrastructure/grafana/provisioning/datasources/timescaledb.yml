@@ -4,14 +4,17 @@ datasources:
   - name: TimescaleDB
     uid: timescaledb
     type: postgres
-    url: ${POSTGRES_HOST}:5432
-    database: ${POSTGRES_DB}
-    user: ${POSTGRES_USER}
+    url: timescaledb:5432
+    database: iot_demo
+    user: iot_user
+
     secureJsonData:
-      password: ${POSTGRES_PASSWORD}
+      password: iot_password
+
     jsonData:
       sslmode: disable
       postgresVersion: 1500
       timescaledb: true
+
     isDefault: true
-    editable: false
+    editable: true
