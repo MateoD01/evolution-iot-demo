@@ -86,6 +86,33 @@ const FAULT_MIN_MS      = 10_000;
 const FAULT_MAX_MS      = 60_000;
 
 // ---------------------------------------------------------------------------
+// Cycle timing — DEBUG values (minutes). Revert to production values:
+//   VOLCABLE:  run 20–55 min, stop  5–30 min
+//   REDLER:    run 180–420 min, stop 30–90 min
+//   NORIA:     run 60–150 min,  stop 10–40 min
+//   SECADORA:  run 120–300 min, stop 30–90 min
+// ---------------------------------------------------------------------------
+const VOLCABLE_RUN_MIN_MS  =  2 * 60_000;
+const VOLCABLE_RUN_MAX_MS  =  4 * 60_000;
+const VOLCABLE_STOP_MIN_MS =  1 * 60_000;
+const VOLCABLE_STOP_MAX_MS =  2 * 60_000;
+
+const REDLER_RUN_MIN_MS    =  3 * 60_000;
+const REDLER_RUN_MAX_MS    =  6 * 60_000;
+const REDLER_STOP_MIN_MS   =  1 * 60_000;
+const REDLER_STOP_MAX_MS   =  2 * 60_000;
+
+const NORIA_RUN_MIN_MS     =  2 * 60_000;
+const NORIA_RUN_MAX_MS     =  4 * 60_000;
+const NORIA_STOP_MIN_MS    = 30 * 1_000;
+const NORIA_STOP_MAX_MS    =  90 * 1_000;
+
+const SECADORA_RUN_MIN_MS  =  4 * 60_000;
+const SECADORA_RUN_MAX_MS  =  8 * 60_000;
+const SECADORA_STOP_MIN_MS =  1 * 60_000;
+const SECADORA_STOP_MAX_MS =  3 * 60_000;
+
+// ---------------------------------------------------------------------------
 // Asset state types
 // ---------------------------------------------------------------------------
 interface VolcableState extends CycleAsset {
@@ -136,7 +163,7 @@ interface SiloSecoState {
 // ---------------------------------------------------------------------------
 const volcable: VolcableState = {
   running:         true,
-  transitionAt:    new Date(Date.now() + randBetween(20 * 60_000, 55 * 60_000)),
+  transitionAt:    new Date(Date.now() + randBetween(VOLCABLE_RUN_MIN_MS, VOLCABLE_RUN_MAX_MS)),
   faultAlarmUntil: null,
   load:            0.82,
   currentA:        46,
@@ -144,7 +171,7 @@ const volcable: VolcableState = {
 
 const redler: RedlerState = {
   running:         true,
-  transitionAt:    new Date(Date.now() + randBetween(180 * 60_000, 420 * 60_000)),
+  transitionAt:    new Date(Date.now() + randBetween(REDLER_RUN_MIN_MS, REDLER_RUN_MAX_MS)),
   faultAlarmUntil: null,
   load:            0.80,
   temperature:     42,
@@ -154,7 +181,7 @@ const redler: RedlerState = {
 
 const noria: NoriaState = {
   running:         true,
-  transitionAt:    new Date(Date.now() + randBetween(60 * 60_000, 150 * 60_000)),
+  transitionAt:    new Date(Date.now() + randBetween(NORIA_RUN_MIN_MS, NORIA_RUN_MAX_MS)),
   faultAlarmUntil: null,
   load:            0.77,
   temperature:     55,
@@ -171,7 +198,7 @@ const distribuidora: DistribuidoraState = {
 
 const secadora: SecadoraState = {
   running:         true,
-  transitionAt:    new Date(Date.now() + randBetween(120 * 60_000, 300 * 60_000)),
+  transitionAt:    new Date(Date.now() + randBetween(SECADORA_RUN_MIN_MS, SECADORA_RUN_MAX_MS)),
   faultAlarmUntil: null,
   load:            0.74,
   temperature:     95,
@@ -205,7 +232,7 @@ const SECADORA_MAX_TPH = 90;
 // ---------------------------------------------------------------------------
 
 function updateVolcable(): void {
-  tickCycle(volcable, 20 * 60_000, 55 * 60_000, 5 * 60_000, 30 * 60_000, 'VOLCABLE-01');
+  tickCycle(volcable, VOLCABLE_RUN_MIN_MS, VOLCABLE_RUN_MAX_MS, VOLCABLE_STOP_MIN_MS, VOLCABLE_STOP_MAX_MS, 'VOLCABLE-01');
   maybeFaultAlarm(volcable, FAULT_PROB_NORMAL, FAULT_MIN_MS, FAULT_MAX_MS, 'VOLCABLE-01');
 
   const loadTarget = volcable.running ? 0.70 + Math.random() * 0.25 : 0;
@@ -217,7 +244,7 @@ function updateVolcable(): void {
 }
 
 function updateRedler(): void {
-  tickCycle(redler, 180 * 60_000, 420 * 60_000, 30 * 60_000, 90 * 60_000, 'REDLER-01');
+  tickCycle(redler, REDLER_RUN_MIN_MS, REDLER_RUN_MAX_MS, REDLER_STOP_MIN_MS, REDLER_STOP_MAX_MS, 'REDLER-01');
   maybeFaultAlarm(redler, FAULT_PROB_NORMAL, FAULT_MIN_MS, FAULT_MAX_MS, 'REDLER-01');
 
   // Throughput follows VOLCABLE when both running; residual tail-off when volcable stops
@@ -243,7 +270,7 @@ function updateRedler(): void {
 }
 
 function updateNoria(): void {
-  tickCycle(noria, 60 * 60_000, 150 * 60_000, 10 * 60_000, 40 * 60_000, 'NORIA-01');
+  tickCycle(noria, NORIA_RUN_MIN_MS, NORIA_RUN_MAX_MS, NORIA_STOP_MIN_MS, NORIA_STOP_MAX_MS, 'NORIA-01');
   maybeFaultAlarm(noria, FAULT_PROB_HIGH, FAULT_MIN_MS, FAULT_MAX_MS, 'NORIA-01');
 
   const loadTarget = noria.running
@@ -281,7 +308,7 @@ function updateDistribuidora(): void {
 }
 
 function updateSecadora(): void {
-  tickCycle(secadora, 120 * 60_000, 300 * 60_000, 30 * 60_000, 90 * 60_000, 'SECADORA-01');
+  tickCycle(secadora, SECADORA_RUN_MIN_MS, SECADORA_RUN_MAX_MS, SECADORA_STOP_MIN_MS, SECADORA_STOP_MAX_MS, 'SECADORA-01');
   maybeFaultAlarm(secadora, FAULT_PROB_NORMAL, FAULT_MIN_MS, FAULT_MAX_MS, 'SECADORA-01');
 
   const loadTarget = secadora.running

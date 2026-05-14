@@ -10,72 +10,154 @@ const pool = new Pool({
   password: process.env.POSTGRES_PASSWORD ?? 'iot_password',
 });
 
-interface MachineState {
+interface AssetState {
+  machineId: number;
+  assetId: string;        // e.g. "noria_01"
+  signalName: string;     // e.g. "noria_01_running"
   running: boolean;
-  stoppedAt: Date | null;     // when the current stop began
-  lastProcessedTime: Date;    // telemetry cursor — only look at rows after this
+  stoppedAt: Date | null;
+  lastProcessedTime: Date;
 }
 
-// One entry per machine_id, populated at startup and kept current in memory.
-const states = new Map<number, MachineState>();
+// Composite key: "<machineId>:<assetId>"
+const states = new Map<string, AssetState>();
+
+function stateKey(machineId: number, assetId: string): string {
+  return `${machineId}:${assetId}`;
+}
+
+// "noria_01_running" → "noria_01"
+function assetIdFromSignal(signalName: string): string {
+  return signalName.replace(/_running$/, '');
+}
+
+function formatDuration(seconds: number): string {
+  if (seconds < 60) return `${seconds.toFixed(1)}s`;
+  const m = Math.floor(seconds / 60);
+  const s = String(Math.round(seconds % 60)).padStart(2, '0');
+  return `${m}m ${s}s`;
+}
 
 // ---------------------------------------------------------------------------
-// Startup: recover state from processed_events so restarts don't re-emit.
-// For machines with no prior events, establish baseline from latest telemetry.
+// Discovery: find all asset *_running signals.
+// Excludes fan_running (ventilation state, not an asset operational signal).
 // ---------------------------------------------------------------------------
-async function loadInitialState(client: PoolClient): Promise<void> {
-  const eventRows = await client.query<{
-    machine_id: number;
-    event_type: string;
-    time: Date;
-  }>(
-    `SELECT DISTINCT ON (machine_id) machine_id, event_type, time
+async function discoverAssets(client: PoolClient): Promise<Array<{ machineId: number; signalName: string }>> {
+  const rows = await client.query<{ machine_id: number; signal_name: string }>(
+    `SELECT DISTINCT machine_id, signal_name
+     FROM telemetry_raw
+     WHERE signal_name LIKE '%_running'
+       AND signal_name NOT LIKE '%fan_running'
+     ORDER BY machine_id, signal_name`,
+  );
+  return rows.rows.map(r => ({ machineId: r.machine_id, signalName: r.signal_name }));
+}
+
+// ---------------------------------------------------------------------------
+// Initialize state for a single asset.
+// Priority: recover from processed_events (new-format events carry assetId in metadata).
+// Fallback: baseline from latest telemetry row.
+// ---------------------------------------------------------------------------
+async function initAssetState(
+  client: PoolClient,
+  machineId: number,
+  signalName: string,
+): Promise<AssetState | null> {
+  const assetId = assetIdFromSignal(signalName);
+
+  // Recover from events this processor version wrote (metadata carries assetId).
+  const eventRow = await client.query<{ event_type: string; time: Date }>(
+    `SELECT event_type, time
      FROM processed_events
-     WHERE event_type IN ('MACHINE_STOPPED', 'MACHINE_RESUMED')
-     ORDER BY machine_id, time DESC`,
+     WHERE machine_id = $1
+       AND event_type IN ('MACHINE_STOPPED', 'MACHINE_RESUMED')
+       AND metadata->>'assetId' = $2
+     ORDER BY time DESC
+     LIMIT 1`,
+    [machineId, assetId],
   );
 
-  for (const row of eventRows.rows) {
-    states.set(row.machine_id, {
-      running: row.event_type === 'MACHINE_RESUMED',
-      stoppedAt: row.event_type === 'MACHINE_STOPPED' ? row.time : null,
-      lastProcessedTime: row.time,
-    });
+  if (eventRow.rows.length > 0) {
+    const { event_type, time } = eventRow.rows[0];
     console.log(
-      `[processor] Recovered machine ${row.machine_id}: last event=${row.event_type} at ${row.time.toISOString()}`,
+      `[processor]   ${assetId} (machine ${machineId}): recovered — last event ${event_type} at ${time.toISOString()}`,
     );
+    return {
+      machineId,
+      assetId,
+      signalName,
+      running: event_type === 'MACHINE_RESUMED',
+      stoppedAt: event_type === 'MACHINE_STOPPED' ? time : null,
+      lastProcessedTime: time,
+    };
   }
 
-  // Machines that exist in telemetry but have no prior events yet.
-  const machineRows = await client.query<{ machine_id: number }>(
-    `SELECT DISTINCT machine_id FROM telemetry_raw ORDER BY machine_id`,
+  // No prior events — baseline from most recent telemetry.
+  const baseline = await client.query<{ time: Date; value: number }>(
+    `SELECT time, value FROM telemetry_raw
+     WHERE machine_id = $1 AND signal_name = $2
+     ORDER BY time DESC LIMIT 1`,
+    [machineId, signalName],
   );
 
-  for (const { machine_id } of machineRows.rows) {
-    if (states.has(machine_id)) continue;
+  if (baseline.rows.length === 0) return null;
 
-    // Use the latest reading as the baseline — don't retroactively emit events.
-    const baseline = await client.query<{ time: Date; value: number }>(
-      `SELECT time, value FROM telemetry_raw
-       WHERE machine_id = $1 AND signal_name = 'running'
-       ORDER BY time DESC LIMIT 1`,
-      [machine_id],
-    );
+  const { time, value } = baseline.rows[0];
+  const isRunning = value === 1;
 
-    if (baseline.rows.length === 0) continue;
+  console.log(
+    `[processor]   ${assetId} (machine ${machineId}): baseline ${isRunning ? 'RUNNING' : 'STOPPED'} at ${time.toISOString()}`,
+  );
 
-    const { time, value } = baseline.rows[0];
-    const isRunning = value === 1;
+  return {
+    machineId,
+    assetId,
+    signalName,
+    running: isRunning,
+    stoppedAt: isRunning ? null : time,
+    lastProcessedTime: time,
+  };
+}
 
-    states.set(machine_id, {
-      running: isRunning,
-      stoppedAt: isRunning ? null : time,
-      lastProcessedTime: time,
-    });
+// ---------------------------------------------------------------------------
+// Startup: load initial state for all discovered assets.
+// ---------------------------------------------------------------------------
+async function loadInitialState(client: PoolClient): Promise<void> {
+  const assets = await discoverAssets(client);
 
-    console.log(
-      `[processor] Machine ${machine_id} baseline: ${isRunning ? 'running' : 'stopped'} at ${time.toISOString()}`,
-    );
+  if (assets.length === 0) {
+    console.log('[processor] No asset *_running signals found — will retry on each tick');
+    return;
+  }
+
+  console.log(`[processor] Discovered ${assets.length} asset(s):`);
+
+  for (const { machineId, signalName } of assets) {
+    const assetId = assetIdFromSignal(signalName);
+    const key = stateKey(machineId, assetId);
+    if (states.has(key)) continue;
+
+    const state = await initAssetState(client, machineId, signalName);
+    if (state !== null) states.set(key, state);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Tick-time discovery: pick up assets that appeared after startup.
+// ---------------------------------------------------------------------------
+async function discoverNewAssets(client: PoolClient): Promise<void> {
+  const assets = await discoverAssets(client);
+
+  for (const { machineId, signalName } of assets) {
+    const assetId = assetIdFromSignal(signalName);
+    const key = stateKey(machineId, assetId);
+    if (states.has(key)) continue;
+
+    const state = await initAssetState(client, machineId, signalName);
+    if (state !== null) {
+      states.set(key, state);
+      console.log(`[processor] New asset online: ${assetId} (machine ${machineId})`);
+    }
   }
 }
 
@@ -98,26 +180,23 @@ async function persistEvent(
 }
 
 // ---------------------------------------------------------------------------
-// Event detection for one machine.
-// Reads all running-signal rows since lastProcessedTime in chronological order
-// so every transition within a tick window is caught.
+// Event detection for one asset.
 // ---------------------------------------------------------------------------
-async function processMachine(client: PoolClient, machineId: number): Promise<void> {
-  const state = states.get(machineId);
+async function processAsset(client: PoolClient, key: string): Promise<void> {
+  const state = states.get(key);
   if (state === undefined) return;
 
   const rows = await client.query<{ time: Date; value: number }>(
     `SELECT time, value FROM telemetry_raw
      WHERE machine_id = $1
-       AND signal_name = 'running'
-       AND time > $2
+       AND signal_name = $2
+       AND time > $3
      ORDER BY time ASC`,
-    [machineId, state.lastProcessedTime],
+    [state.machineId, state.signalName, state.lastProcessedTime],
   );
 
   if (rows.rows.length === 0) return;
 
-  // Work on a local copy so the map is only updated after successful processing.
   let current = { ...state };
 
   for (const { time: t, value } of rows.rows) {
@@ -129,54 +208,63 @@ async function processMachine(client: PoolClient, machineId: number): Promise<vo
     }
 
     if (!isRunning) {
-      // Transition: running → stopped
-      await persistEvent(client, machineId, 'MACHINE_STOPPED', t, null, {
+      // running → stopped
+      await persistEvent(client, current.machineId, 'MACHINE_STOPPED', t, null, {
+        assetId: current.assetId,
+        signal: current.signalName,
         previousState: 'running',
       });
-      console.log(`[processor] Machine ${machineId} STOPPED at ${t.toISOString()}`);
-      current = { running: false, stoppedAt: t, lastProcessedTime: t };
+      console.log(
+        `[processor] STOP   ${current.assetId} (machine ${current.machineId}) at ${t.toISOString()}`,
+      );
+      current = { ...current, running: false, stoppedAt: t, lastProcessedTime: t };
 
     } else {
-      // Transition: stopped → running
+      // stopped → running
       const durationSeconds =
         current.stoppedAt !== null
           ? (t.getTime() - current.stoppedAt.getTime()) / 1000
           : null;
 
-      await persistEvent(client, machineId, 'MACHINE_RESUMED', t, durationSeconds, {
+      await persistEvent(client, current.machineId, 'MACHINE_RESUMED', t, durationSeconds, {
+        assetId: current.assetId,
+        signal: current.signalName,
         stoppedAt: current.stoppedAt?.toISOString() ?? null,
       });
 
-      // DOWNTIME_DETECTED is emitted only when the full stop→resume interval is known.
       if (durationSeconds !== null && current.stoppedAt !== null) {
-        await persistEvent(client, machineId, 'DOWNTIME_DETECTED', t, durationSeconds, {
+        await persistEvent(client, current.machineId, 'DOWNTIME_DETECTED', t, durationSeconds, {
+          assetId: current.assetId,
+          signal: current.signalName,
           stoppedAt: current.stoppedAt.toISOString(),
           resumedAt: t.toISOString(),
           durationSeconds,
         });
         console.log(
-          `[processor] Machine ${machineId} RESUMED — downtime ${durationSeconds.toFixed(1)}s`,
+          `[processor] RESUME ${current.assetId} (machine ${current.machineId}) — downtime ${formatDuration(durationSeconds)}`,
         );
       } else {
-        // stoppedAt is unknown (machine was stopped before the processor first ran)
-        console.log(`[processor] Machine ${machineId} RESUMED — downtime duration unknown`);
+        console.log(
+          `[processor] RESUME ${current.assetId} (machine ${current.machineId}) — downtime duration unknown (no prior stop recorded)`,
+        );
       }
 
-      current = { running: true, stoppedAt: null, lastProcessedTime: t };
+      current = { ...current, running: true, stoppedAt: null, lastProcessedTime: t };
     }
   }
 
-  states.set(machineId, current);
+  states.set(key, current);
 }
 
 // ---------------------------------------------------------------------------
-// Tick: process every tracked machine.
+// Tick: discover new assets, then process all tracked assets.
 // ---------------------------------------------------------------------------
 async function tick(): Promise<void> {
   const client = await pool.connect();
   try {
-    for (const machineId of states.keys()) {
-      await processMachine(client, machineId);
+    await discoverNewAssets(client);
+    for (const key of states.keys()) {
+      await processAsset(client, key);
     }
   } finally {
     client.release();
@@ -196,7 +284,10 @@ async function run(): Promise<void> {
     client.release();
   }
 
-  console.log(`[processor] Tracking ${states.size} machine(s)`);
+  const assetList = [...states.values()].map(s => s.assetId).join(', ');
+  console.log(
+    `[processor] Tracking ${states.size} asset(s)${states.size > 0 ? `: ${assetList}` : ' — waiting for telemetry'}`,
+  );
 
   const safeTick = async () => {
     try {
