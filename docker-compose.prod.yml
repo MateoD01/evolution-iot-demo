@@ -1,5 +1,6 @@
-## Overlay de producción: usa imágenes ya construidas y publicadas en GHCR
-## en vez de compilar en el servidor. Se combina con docker-compose.yml:
+## Overlay de producción: usa imágenes ya construidas y publicadas en el
+## Docker Registry privado del servidor (docker-compose.registry.yml) en vez
+## de compilar en la instancia. Se combina con docker-compose.yml:
 ##
 ##   docker compose -f docker-compose.yml -f docker-compose.prod.yml pull
 ##   docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
@@ -7,19 +8,21 @@
 ## (sin --build: así Compose usa la imagen de "image:" en vez de reconstruir
 ## desde "build:". El "build:" de docker-compose.yml sigue ahí para cuando
 ## se quiera compilar local, por ej. en la notebook antes de publicar.)
+##
+## Requiere REGISTRY_HOST definido en .env, ej: REGISTRY_HOST=1.2.3.4:5000
 
 services:
   plc-simulator:
-    image: ghcr.io/mateod01/evolution-iot-demo-plc-simulator:latest
+    image: ${REGISTRY_HOST}/evolution-iot-demo-plc-simulator:latest
 
   collector:
-    image: ghcr.io/mateod01/evolution-iot-demo-collector:latest
+    image: ${REGISTRY_HOST}/evolution-iot-demo-collector:latest
 
   plc-simulator-pinedo:
-    image: ghcr.io/mateod01/evolution-iot-demo-plc-simulator-pinedo:latest
+    image: ${REGISTRY_HOST}/evolution-iot-demo-plc-simulator-pinedo:latest
 
   collector-pinedo:
-    image: ghcr.io/mateod01/evolution-iot-demo-collector-pinedo:latest
+    image: ${REGISTRY_HOST}/evolution-iot-demo-collector-pinedo:latest
 
   processor:
-    image: ghcr.io/mateod01/evolution-iot-demo-processor:latest
+    image: ${REGISTRY_HOST}/evolution-iot-demo-processor:latest

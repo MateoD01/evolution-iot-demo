@@ -17,6 +17,7 @@ npm-debug.log*
 
 # Docker
 .docker/
+registry/
 
 # Claude worktrees
 .claude/worktrees/

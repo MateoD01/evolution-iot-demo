@@ -1,18 +1,19 @@
 #!/usr/bin/env bash
-# Compila las 5 imágenes propias del proyecto y las publica en GHCR
-# (GitHub Container Registry), para que el servidor solo tenga que hacer
-# `docker compose pull` en vez de compilar TypeScript en la instancia.
+# Compila las 5 imágenes propias del proyecto y las publica en el Docker Registry
+# privado que corre en el servidor (docker-compose.registry.yml), para que el
+# servidor solo tenga que hacer `docker compose pull` en vez de compilar
+# TypeScript en la instancia.
 #
-# Uso:
-#   export GHCR_USER=mateod01
-#   echo <tu-token-con-scope-write:packages> | docker login ghcr.io -u $GHCR_USER --password-stdin
-#   ./scripts/publish-images.sh [tag]      # tag por defecto: latest
+# Uso (desde la notebook):
+#   export REGISTRY_HOST=<ip-publica-o-elastic-ip>:5000
+#   docker login $REGISTRY_HOST                 # user/clave del htpasswd del registry
+#   ./scripts/publish-images.sh [tag]            # tag por defecto: latest
 
 set -euo pipefail
 
 TAG="${1:-latest}"
-GHCR_USER="${GHCR_USER:?Definí GHCR_USER, ej: export GHCR_USER=mateod01}"
-REGISTRY="ghcr.io/${GHCR_USER}/evolution-iot-demo"
+REGISTRY_HOST="${REGISTRY_HOST:?Definí REGISTRY_HOST, ej: export REGISTRY_HOST=1.2.3.4:5000}"
+REGISTRY="${REGISTRY_HOST}/evolution-iot-demo"
 
 SERVICES=(plc-simulator collector plc-simulator-pinedo collector-pinedo processor)
 

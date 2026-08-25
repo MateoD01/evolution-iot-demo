@@ -1,0 +1,25 @@
+## Registry Docker privado, para correr UNA VEZ en el servidor (no en la notebook).
+## Reemplaza a GHCR: acá pusheás desde la notebook y el server hace pull de sí mismo.
+##
+## En el servidor:
+##   mkdir -p registry/auth registry/data
+##   docker run --rm --entrypoint htpasswd httpd:2 -Bbn <user> '<pass>' > registry/auth/htpasswd
+##   docker compose -f docker-compose.registry.yml up -d
+##
+## Queda escuchando en :5000 con auth básica (usuario/clave del htpasswd de arriba).
+
+services:
+  registry:
+    image: registry:2
+    container_name: iot-registry
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      REGISTRY_AUTH: htpasswd
+      REGISTRY_AUTH_HTPASSWD_REALM: "Registry Realm"
+      REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+      REGISTRY_STORAGE_DELETE_ENABLED: "true"
+    volumes:
+      - ./registry/data:/var/lib/registry
+      - ./registry/auth:/auth
