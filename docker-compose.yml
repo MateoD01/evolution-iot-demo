@@ -40,7 +40,14 @@ services:
     networks:
       - iot-network
 
+  # --- Demo "bonita" original (assets sintéticos por HTTP, machine PLC-001) ---
+  # No arranca con "docker compose up -d" a secas: quedó reemplazada por el
+  # par plc-simulator-pinedo/collector-pinedo (Modbus TCP real, mapa Pinedo)
+  # para no tener dos fuentes de datos simuladas corriendo en paralelo.
+  # Si algún día hace falta de nuevo para esa demo puntual:
+  #   docker compose --profile demo-http up -d
   plc-simulator:
+    profiles: ["demo-http"]
     build:
       context: ./apps/plc-simulator
       dockerfile: Dockerfile
@@ -55,6 +62,7 @@ services:
     restart: unless-stopped
 
   collector:
+    profiles: ["demo-http"]
     build:
       context: ./apps/collector
       dockerfile: Dockerfile
