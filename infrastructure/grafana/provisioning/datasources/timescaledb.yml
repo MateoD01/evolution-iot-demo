@@ -5,11 +5,11 @@ datasources:
     uid: timescaledb
     type: postgres
     url: timescaledb:5432
-    database: iot_demo
-    user: iot_user
+    database: ${POSTGRES_DB}
+    user: ${POSTGRES_USER}
 
     secureJsonData:
-      password: iot_password
+      password: ${POSTGRES_PASSWORD}
 
     jsonData:
       sslmode: disable
