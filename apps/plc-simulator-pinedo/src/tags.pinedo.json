@@ -1,0 +1,3382 @@
+[
+  {
+    "tag": "redler_1_running",
+    "sourceName": "EST_R1",
+    "register": 5,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_2_running",
+    "sourceName": "EST_R2",
+    "register": 6,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_3_running",
+    "sourceName": "EST_R3",
+    "register": 7,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_4_running",
+    "sourceName": "EST_R4",
+    "register": 8,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_5_running",
+    "sourceName": "EST_R5",
+    "register": 9,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_6_running",
+    "sourceName": "EST_R6",
+    "register": 10,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_7_running",
+    "sourceName": "EST_R7",
+    "register": 11,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_8_running",
+    "sourceName": "EST_R8",
+    "register": 12,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_9_running",
+    "sourceName": "EST_R9",
+    "register": 13,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_celda_1_running",
+    "sourceName": "EST_VMSA1",
+    "register": 15,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_celda_2_running",
+    "sourceName": "EST_VMSA2",
+    "register": 16,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_metalico_1_running",
+    "sourceName": "EST_VMSM1",
+    "register": 17,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_metalico_2_running",
+    "sourceName": "EST_VMSM2",
+    "register": 18,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "bsa1_running",
+    "sourceName": "EST_BSA1",
+    "register": 19,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "bsa2_running",
+    "sourceName": "EST_BSA2",
+    "register": 20,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_celda_1_running",
+    "sourceName": "EST_V1SA1",
+    "register": 21,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_celda_1_running",
+    "sourceName": "EST_V2SA1",
+    "register": 22,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_3_silo_celda_1_running",
+    "sourceName": "EST_V3SA1",
+    "register": 23,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_4_silo_celda_1_running",
+    "sourceName": "EST_V4SA1",
+    "register": 24,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_celda_1_running",
+    "sourceName": "EST_E1SA1",
+    "register": 25,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_celda_1_running",
+    "sourceName": "EST_E2SA1",
+    "register": 26,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_3_silo_celda_1_running",
+    "sourceName": "EST_E3SA1",
+    "register": 27,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_4_silo_celda_1_running",
+    "sourceName": "EST_E4SA1",
+    "register": 28,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_celda_2_running",
+    "sourceName": "EST_V1SA2",
+    "register": 29,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_celda_2_running",
+    "sourceName": "EST_V2SA2",
+    "register": 30,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_3_silo_celda_2_running",
+    "sourceName": "EST_V3SA2",
+    "register": 31,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_4_silo_celda_2_running",
+    "sourceName": "EST_V4SA2",
+    "register": 32,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_celda_2_running",
+    "sourceName": "EST_E1SA2",
+    "register": 33,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_celda_2_running",
+    "sourceName": "EST_E2SA2",
+    "register": 34,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_3_silo_celda_2_running",
+    "sourceName": "EST_E3SA2",
+    "register": 35,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_4_silo_celda_2_running",
+    "sourceName": "EST_E4SA2",
+    "register": 36,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_metalico_1_running",
+    "sourceName": "EST_V1SM1",
+    "register": 37,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_metalico_1_running",
+    "sourceName": "EST_V2SM1",
+    "register": 38,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_metalico_1_running",
+    "sourceName": "EST_E1SM1",
+    "register": 39,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_metalico_1_running",
+    "sourceName": "EST_E2SM1",
+    "register": 40,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_metalico_2_running",
+    "sourceName": "EST_V1SM2",
+    "register": 41,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_metalico_2_running",
+    "sourceName": "EST_V2SM2",
+    "register": 42,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_metalico_2_running",
+    "sourceName": "EST_E1SM2",
+    "register": 43,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_metalico_2_running",
+    "sourceName": "EST_E2SM2",
+    "register": 44,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dm1a_running",
+    "sourceName": "EST_DM1A",
+    "register": 45,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dm1b_running",
+    "sourceName": "EST_DM1B",
+    "register": 46,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dm2_running",
+    "sourceName": "EST_DM2",
+    "register": 47,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dsa1_running",
+    "sourceName": "EST_DSA1",
+    "register": 48,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dsa2_running",
+    "sourceName": "EST_DSA2",
+    "register": 49,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "vt_running",
+    "sourceName": "EST_VT",
+    "register": 50,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "aspiracion_noria_1_running",
+    "sourceName": "EST_ASPN1",
+    "register": 51,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "aspiracion_noria_2_running",
+    "sourceName": "EST_ASPN2",
+    "register": 52,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "aspiracion_noria_3_running",
+    "sourceName": "EST_ASPN3",
+    "register": 53,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "noria_1_running",
+    "sourceName": "EST_N1",
+    "register": 54,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "noria_2_running",
+    "sourceName": "EST_N2",
+    "register": 55,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "noria_3_running",
+    "sourceName": "EST_N3",
+    "register": 56,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_1_cmd",
+    "sourceName": "CMD_R1",
+    "register": 105,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "redler_2_cmd",
+    "sourceName": "CMD_R2",
+    "register": 106,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "redler_3_cmd",
+    "sourceName": "CMD_R3",
+    "register": 107,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "redler_4_cmd",
+    "sourceName": "CMD_R4",
+    "register": 108,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "redler_5_cmd",
+    "sourceName": "CMD_R5",
+    "register": 109,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "redler_6_cmd",
+    "sourceName": "CMD_R6",
+    "register": 110,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "redler_7_cmd",
+    "sourceName": "CMD_R7",
+    "register": 111,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "redler_8_cmd",
+    "sourceName": "CMD_R8",
+    "register": 112,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "redler_9_cmd",
+    "sourceName": "CMD_R9",
+    "register": 113,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_celda_1_cmd",
+    "sourceName": "CMD_VMSA1",
+    "register": 115,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_celda_2_cmd",
+    "sourceName": "CMD_VMSA2",
+    "register": 116,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_metalico_1_cmd",
+    "sourceName": "CMD_VMSM1",
+    "register": 117,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_metalico_2_cmd",
+    "sourceName": "CMD_VMSM2",
+    "register": 118,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "bsa1_cmd",
+    "sourceName": "CMD_BSA1",
+    "register": 119,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "bsa2_cmd",
+    "sourceName": "CMD_BSA2",
+    "register": 120,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_celda_1_cmd",
+    "sourceName": "CMD_V1SA1",
+    "register": 121,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_celda_1_cmd",
+    "sourceName": "CMD_V2SA1",
+    "register": 122,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_3_silo_celda_1_cmd",
+    "sourceName": "CMD_V3SA1",
+    "register": 123,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_4_silo_celda_1_cmd",
+    "sourceName": "CMD_V4SA1",
+    "register": 124,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_celda_1_cmd",
+    "sourceName": "CMD_E1SA1",
+    "register": 125,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_celda_1_cmd",
+    "sourceName": "CMD_E2SA1",
+    "register": 126,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "extractor_3_silo_celda_1_cmd",
+    "sourceName": "CMD_E3SA1",
+    "register": 127,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "extractor_4_silo_celda_1_cmd",
+    "sourceName": "CMD_E4SA1",
+    "register": 128,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_celda_2_cmd",
+    "sourceName": "CMD_V1SA2",
+    "register": 129,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_celda_2_cmd",
+    "sourceName": "CMD_V2SA2",
+    "register": 130,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_3_silo_celda_2_cmd",
+    "sourceName": "CMD_V3SA2",
+    "register": 131,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_4_silo_celda_2_cmd",
+    "sourceName": "CMD_V4SA2",
+    "register": 132,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_celda_2_cmd",
+    "sourceName": "CMD_E1SA2",
+    "register": 133,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_celda_2_cmd",
+    "sourceName": "CMD_E2SA2",
+    "register": 134,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "extractor_3_silo_celda_2_cmd",
+    "sourceName": "CMD_E3SA2",
+    "register": 135,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "extractor_4_silo_celda_2_cmd",
+    "sourceName": "CMD_E4SA2",
+    "register": 136,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_metalico_1_cmd",
+    "sourceName": "CMD_V1SM1",
+    "register": 137,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_metalico_1_cmd",
+    "sourceName": "CMD_V2SM1",
+    "register": 138,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_metalico_1_cmd",
+    "sourceName": "CMD_E1SM1",
+    "register": 139,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_metalico_1_cmd",
+    "sourceName": "CMD_E2SM1",
+    "register": 140,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_metalico_2_cmd",
+    "sourceName": "CMD_V1SM2",
+    "register": 141,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_metalico_2_cmd",
+    "sourceName": "CMD_V2SM2",
+    "register": 142,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_metalico_2_cmd",
+    "sourceName": "CMD_E1SM2",
+    "register": 143,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_metalico_2_cmd",
+    "sourceName": "CMD_E2SM2",
+    "register": 144,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "dm1a_cmd",
+    "sourceName": "CMD_DM1A",
+    "register": 145,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "dm1b_cmd",
+    "sourceName": "CMD_DM1B",
+    "register": 146,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "dm2_cmd",
+    "sourceName": "CMD_DM2",
+    "register": 147,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "dsa1_cmd",
+    "sourceName": "CMD_DSA1",
+    "register": 148,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "dsa2_cmd",
+    "sourceName": "CMD_DSA2",
+    "register": 149,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "vt_cmd",
+    "sourceName": "CMD_VT",
+    "register": 150,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "aspiracion_noria_1_cmd",
+    "sourceName": "CMD_ASPN1",
+    "register": 151,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "aspiracion_noria_2_cmd",
+    "sourceName": "CMD_ASPN2",
+    "register": 152,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "aspiracion_noria_3_cmd",
+    "sourceName": "CMD_ASPN3",
+    "register": 153,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "noria_1_cmd",
+    "sourceName": "CMD_N1",
+    "register": 154,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "noria_2_cmd",
+    "sourceName": "CMD_N2",
+    "register": 155,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "noria_3_cmd",
+    "sourceName": "CMD_N3",
+    "register": 156,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "lsh_dsa1_running",
+    "sourceName": "EST_LSH_DSA1",
+    "register": 500,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "lsh_dsa2_running",
+    "sourceName": "EST_LSH_DSA2",
+    "register": 501,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "lsh_sec_running",
+    "sourceName": "EST_LSH_SEC",
+    "register": 502,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "lsh_sm1_running",
+    "sourceName": "EST_LSH_SM1",
+    "register": 503,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "lsh_sm2_running",
+    "sourceName": "EST_LSH_SM2",
+    "register": 504,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "lsh_scc1_running",
+    "sourceName": "EST_LSH_SCC1",
+    "register": 505,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "lsh_scc2_running",
+    "sourceName": "EST_LSH_SCC2",
+    "register": 506,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_1_running",
+    "sourceName": "EST_V1",
+    "register": 650,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_2_running",
+    "sourceName": "EST_V2",
+    "register": 651,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_3_running",
+    "sourceName": "EST_V3",
+    "register": 652,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_4_running",
+    "sourceName": "EST_V4",
+    "register": 653,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_6_running",
+    "sourceName": "EST_V6",
+    "register": 654,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_5_running",
+    "sourceName": "EST_V5",
+    "register": 655,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_1_cmd",
+    "sourceName": "CMD_V1",
+    "register": 660,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "valvula_2_cmd",
+    "sourceName": "CMD_V2",
+    "register": 661,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "valvula_3_cmd",
+    "sourceName": "CMD_V3",
+    "register": 662,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "valvula_4_cmd",
+    "sourceName": "CMD_V4",
+    "register": 663,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "valvula_6_cmd",
+    "sourceName": "CMD_V6",
+    "register": 664,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "valvula_5_cmd",
+    "sourceName": "CMD_V5",
+    "register": 665,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": true,
+    "scale": null
+  },
+  {
+    "tag": "fc_v1_sp",
+    "sourceName": "SP_FC_V1",
+    "register": 670,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "fc_v2_sp",
+    "sourceName": "SP_FC_V2",
+    "register": 671,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "fc_v3_sp",
+    "sourceName": "SP_FC_V3",
+    "register": 672,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "fc_v4_sp",
+    "sourceName": "SP_FC_V4",
+    "register": 673,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "fc_v6_sp",
+    "sourceName": "SP_FC_V6",
+    "register": 674,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "fc_v5_sp",
+    "sourceName": "SP_FC_V5",
+    "register": 675,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_1_bypass",
+    "sourceName": "ByS_R1",
+    "register": 805,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_2_bypass",
+    "sourceName": "ByS_R2",
+    "register": 806,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_3_bypass",
+    "sourceName": "ByS_R3",
+    "register": 807,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_4_bypass",
+    "sourceName": "ByS_R4",
+    "register": 808,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_5_bypass",
+    "sourceName": "ByS_R5",
+    "register": 809,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_6_bypass",
+    "sourceName": "ByS_R6",
+    "register": 810,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_7_bypass",
+    "sourceName": "ByS_R7",
+    "register": 811,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_8_bypass",
+    "sourceName": "ByS_R8",
+    "register": 812,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_9_bypass",
+    "sourceName": "ByS_R9",
+    "register": 813,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_celda_1_bypass",
+    "sourceName": "ByS_VMSA1",
+    "register": 815,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_celda_2_bypass",
+    "sourceName": "ByS_VMSA2",
+    "register": 816,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_metalico_1_bypass",
+    "sourceName": "ByS_VMSM1",
+    "register": 817,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_metalico_2_bypass",
+    "sourceName": "ByS_VMSM2",
+    "register": 818,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "bsa1_bypass",
+    "sourceName": "ByS_BSA1",
+    "register": 819,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "bsa2_bypass",
+    "sourceName": "ByS_BSA2",
+    "register": 820,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_celda_1_bypass",
+    "sourceName": "ByS_V1SA1",
+    "register": 821,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_celda_1_bypass",
+    "sourceName": "ByS_V2SA1",
+    "register": 822,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_3_silo_celda_1_bypass",
+    "sourceName": "ByS_V3SA1",
+    "register": 823,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_4_silo_celda_1_bypass",
+    "sourceName": "ByS_V4SA1",
+    "register": 824,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_celda_1_bypass",
+    "sourceName": "ByS_E1SA1",
+    "register": 825,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_celda_1_bypass",
+    "sourceName": "ByS_E2SA1",
+    "register": 826,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_3_silo_celda_1_bypass",
+    "sourceName": "ByS_E3SA1",
+    "register": 827,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_4_silo_celda_1_bypass",
+    "sourceName": "ByS_E4SA1",
+    "register": 828,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_celda_2_bypass",
+    "sourceName": "ByS_V1SA2",
+    "register": 829,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_celda_2_bypass",
+    "sourceName": "ByS_V2SA2",
+    "register": 830,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_3_silo_celda_2_bypass",
+    "sourceName": "ByS_V3SA2",
+    "register": 831,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_4_silo_celda_2_bypass",
+    "sourceName": "ByS_V4SA2",
+    "register": 832,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_celda_2_bypass",
+    "sourceName": "ByS_E1SA2",
+    "register": 833,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_celda_2_bypass",
+    "sourceName": "ByS_E2SA2",
+    "register": 834,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_3_silo_celda_2_bypass",
+    "sourceName": "ByS_E3SA2",
+    "register": 835,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_4_silo_celda_2_bypass",
+    "sourceName": "ByS_E4SA2",
+    "register": 836,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_metalico_1_bypass",
+    "sourceName": "ByS_V1SM1",
+    "register": 837,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_metalico_1_bypass",
+    "sourceName": "ByS_V2SM1",
+    "register": 838,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_metalico_1_bypass",
+    "sourceName": "ByS_E1SM1",
+    "register": 839,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_metalico_1_bypass",
+    "sourceName": "ByS_E2SM1",
+    "register": 840,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_metalico_2_bypass",
+    "sourceName": "ByS_V1SM2",
+    "register": 841,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_metalico_2_bypass",
+    "sourceName": "ByS_V2SM2",
+    "register": 842,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_metalico_2_bypass",
+    "sourceName": "ByS_E1SM2",
+    "register": 843,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_metalico_2_bypass",
+    "sourceName": "ByS_E2SM2",
+    "register": 844,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dm1a_bypass",
+    "sourceName": "ByS_DM1A",
+    "register": 845,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dm1b_bypass",
+    "sourceName": "ByS_DM1B",
+    "register": 846,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dm2_bypass",
+    "sourceName": "ByS_DM2",
+    "register": 847,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dsa1_bypass",
+    "sourceName": "ByS_DSA1",
+    "register": 848,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dsa2_bypass",
+    "sourceName": "ByS_DSA2",
+    "register": 849,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "vt_bypass",
+    "sourceName": "ByS_VT",
+    "register": 850,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "aspiracion_noria_1_bypass",
+    "sourceName": "ByS_ASPN1",
+    "register": 851,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "aspiracion_noria_2_bypass",
+    "sourceName": "ByS_ASPN2",
+    "register": 852,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "aspiracion_noria_3_bypass",
+    "sourceName": "ByS_ASPN3",
+    "register": 853,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "noria_1_bypass",
+    "sourceName": "ByS_N1",
+    "register": 854,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "noria_2_bypass",
+    "sourceName": "ByS_N2",
+    "register": 855,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "noria_3_bypass",
+    "sourceName": "ByS_N3",
+    "register": 856,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ub_dm1b_sel",
+    "sourceName": "SEL_UB_DM1B",
+    "register": 2012,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dm1b_ub",
+    "sourceName": "UB_DM1B",
+    "register": 2016,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_1_hours",
+    "sourceName": "HS_R1",
+    "register": 2017,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_1_fc",
+    "sourceName": "FC_R1",
+    "register": 2018,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_1_setpoint",
+    "sourceName": "FV_R1",
+    "register": 2019,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ub_dm2_sel",
+    "sourceName": "SEL_UB_DM2",
+    "register": 2020,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_2_hours",
+    "sourceName": "HS_R2",
+    "register": 2021,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_2_fc",
+    "sourceName": "FC_R2",
+    "register": 2022,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_2_setpoint",
+    "sourceName": "FV_R2",
+    "register": 2023,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dm2_ub",
+    "sourceName": "UB_DM2",
+    "register": 2024,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_3_hours",
+    "sourceName": "HS_R3",
+    "register": 2025,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_3_fc",
+    "sourceName": "FC_R3",
+    "register": 2026,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_3_setpoint",
+    "sourceName": "FV_R3",
+    "register": 2027,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "corriente_general_a",
+    "sourceName": "AA_1_PC",
+    "register": 2028,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_4_hours",
+    "sourceName": "HS_R4",
+    "register": 2029,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_4_fc",
+    "sourceName": "FC_R4",
+    "register": 2030,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_4_setpoint",
+    "sourceName": "FV_R4",
+    "register": 2031,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ub_dm1a_sel",
+    "sourceName": "SEL_UB_DM1A",
+    "register": 2032,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_5_hours",
+    "sourceName": "HS_R5",
+    "register": 2033,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_5_fc",
+    "sourceName": "FC_R5",
+    "register": 2034,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_5_setpoint",
+    "sourceName": "FV_R5",
+    "register": 2035,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dm1a_ub",
+    "sourceName": "UB_DM1A",
+    "register": 2036,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_6_hours",
+    "sourceName": "HS_R6",
+    "register": 2037,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_6_fc",
+    "sourceName": "FC_R6",
+    "register": 2038,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_6_setpoint",
+    "sourceName": "FV_R6",
+    "register": 2039,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_7_hours",
+    "sourceName": "HS_R7",
+    "register": 2041,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_7_fc",
+    "sourceName": "FC_R7",
+    "register": 2042,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_7_setpoint",
+    "sourceName": "FV_R7",
+    "register": 2043,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_8_hours",
+    "sourceName": "HS_R8",
+    "register": 2045,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_8_fc",
+    "sourceName": "FC_R8",
+    "register": 2046,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_8_setpoint",
+    "sourceName": "FV_R8",
+    "register": 2047,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_9_hours",
+    "sourceName": "HS_R9",
+    "register": 2049,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_9_fc",
+    "sourceName": "FC_R9",
+    "register": 2050,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "redler_9_setpoint",
+    "sourceName": "FV_R9",
+    "register": 2051,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_celda_1_hours",
+    "sourceName": "HS_VMSA1",
+    "register": 2057,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_celda_1_fc",
+    "sourceName": "FC_VMSA1",
+    "register": 2058,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_celda_1_pulses",
+    "sourceName": "PLS_VMSA1",
+    "register": 2059,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_celda_2_hours",
+    "sourceName": "HS_VMSA2",
+    "register": 2061,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_celda_2_fc",
+    "sourceName": "FC_VMSA2",
+    "register": 2062,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_celda_2_pulses",
+    "sourceName": "PLS_VMSA2",
+    "register": 2063,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_metalico_1_hours",
+    "sourceName": "HS_VMSM1",
+    "register": 2065,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_metalico_1_fc",
+    "sourceName": "FC_VMSM1",
+    "register": 2066,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_metalico_1_pulses",
+    "sourceName": "PLS_VMSM1",
+    "register": 2067,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_metalico_2_hours",
+    "sourceName": "HS_VMSM2",
+    "register": 2069,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_metalico_2_fc",
+    "sourceName": "FC_VMSM2",
+    "register": 2070,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "valvula_motorizada_silo_metalico_2_pulses",
+    "sourceName": "PLS_VMSM2",
+    "register": 2071,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "bsa1_hours",
+    "sourceName": "HS_BSA1",
+    "register": 2073,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "bsa1_fc",
+    "sourceName": "FC_BSA1",
+    "register": 2074,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "bsa1_setpoint",
+    "sourceName": "FV_BSA1",
+    "register": 2075,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "bsa2_hours",
+    "sourceName": "HS_BSA2",
+    "register": 2077,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "bsa2_fc",
+    "sourceName": "FC_BSA2",
+    "register": 2078,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "bsa2_setpoint",
+    "sourceName": "FV_BSA2",
+    "register": 2079,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_celda_1_hours",
+    "sourceName": "HS_V1SA1",
+    "register": 2081,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_celda_1_fc",
+    "sourceName": "FC_V1SA1",
+    "register": 2082,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_celda_1_setpoint",
+    "sourceName": "FV_V1SA1",
+    "register": 2083,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_celda_1_hours",
+    "sourceName": "HS_V2SA1",
+    "register": 2085,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_celda_1_fc",
+    "sourceName": "FC_V2SA1",
+    "register": 2086,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_celda_1_setpoint",
+    "sourceName": "FV_V2SA1",
+    "register": 2087,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_3_silo_celda_1_hours",
+    "sourceName": "HS_V3SA1",
+    "register": 2089,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_3_silo_celda_1_fc",
+    "sourceName": "FC_V3SA1",
+    "register": 2090,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_3_silo_celda_1_setpoint",
+    "sourceName": "FV_V3SA1",
+    "register": 2091,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_4_silo_celda_1_hours",
+    "sourceName": "HS_V4SA1",
+    "register": 2093,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_4_silo_celda_1_fc",
+    "sourceName": "FC_V4SA1",
+    "register": 2094,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_4_silo_celda_1_setpoint",
+    "sourceName": "FV_V4SA1",
+    "register": 2095,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_celda_1_hours",
+    "sourceName": "HS_E1SA1",
+    "register": 2097,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_celda_1_fc",
+    "sourceName": "FC_E1SA1",
+    "register": 2098,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_celda_1_setpoint",
+    "sourceName": "FV_E1SA1",
+    "register": 2099,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_celda_1_hours",
+    "sourceName": "HS_E2SA1",
+    "register": 2101,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_celda_1_fc",
+    "sourceName": "FC_E2SA1",
+    "register": 2102,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_celda_1_setpoint",
+    "sourceName": "FV_E2SA1",
+    "register": 2103,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_3_silo_celda_1_hours",
+    "sourceName": "HS_E3SA1",
+    "register": 2105,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_3_silo_celda_1_fc",
+    "sourceName": "FC_E3SA1",
+    "register": 2106,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_3_silo_celda_1_setpoint",
+    "sourceName": "FV_E3SA1",
+    "register": 2107,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_4_silo_celda_1_hours",
+    "sourceName": "HS_E4SA1",
+    "register": 2109,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_4_silo_celda_1_fc",
+    "sourceName": "FC_E4SA1",
+    "register": 2110,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_4_silo_celda_1_setpoint",
+    "sourceName": "FV_E4SA1",
+    "register": 2111,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_celda_2_hours",
+    "sourceName": "HS_V1SA2",
+    "register": 2113,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_celda_2_fc",
+    "sourceName": "FC_V1SA2",
+    "register": 2114,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_celda_2_setpoint",
+    "sourceName": "FV_V1SA2",
+    "register": 2115,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_celda_2_hours",
+    "sourceName": "HS_V2SA2",
+    "register": 2117,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_celda_2_fc",
+    "sourceName": "FC_V2SA2",
+    "register": 2118,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_celda_2_setpoint",
+    "sourceName": "FV_V2SA2",
+    "register": 2119,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_3_silo_celda_2_hours",
+    "sourceName": "HS_V3SA2",
+    "register": 2121,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_3_silo_celda_2_fc",
+    "sourceName": "FC_V3SA2",
+    "register": 2122,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_3_silo_celda_2_setpoint",
+    "sourceName": "FV_V3SA2",
+    "register": 2123,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_4_silo_celda_2_hours",
+    "sourceName": "HS_V4SA2",
+    "register": 2125,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_4_silo_celda_2_fc",
+    "sourceName": "FC_V4SA2",
+    "register": 2126,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_4_silo_celda_2_setpoint",
+    "sourceName": "FV_V4SA2",
+    "register": 2127,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_celda_2_hours",
+    "sourceName": "HS_E1SA2",
+    "register": 2129,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_celda_2_fc",
+    "sourceName": "FC_E1SA2",
+    "register": 2130,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_celda_2_setpoint",
+    "sourceName": "FV_E1SA2",
+    "register": 2131,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_celda_2_hours",
+    "sourceName": "HS_E2SA2",
+    "register": 2133,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_celda_2_fc",
+    "sourceName": "FC_E2SA2",
+    "register": 2134,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_celda_2_setpoint",
+    "sourceName": "FV_E2SA2",
+    "register": 2135,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_3_silo_celda_2_hours",
+    "sourceName": "HS_E3SA2",
+    "register": 2137,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_3_silo_celda_2_fc",
+    "sourceName": "FC_E3SA2",
+    "register": 2138,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_3_silo_celda_2_setpoint",
+    "sourceName": "FV_E3SA2",
+    "register": 2139,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_4_silo_celda_2_hours",
+    "sourceName": "HS_E4SA2",
+    "register": 2141,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_4_silo_celda_2_fc",
+    "sourceName": "FC_E4SA2",
+    "register": 2142,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_4_silo_celda_2_setpoint",
+    "sourceName": "FV_E4SA2",
+    "register": 2143,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_metalico_1_hours",
+    "sourceName": "HS_V1SM1",
+    "register": 2145,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_metalico_1_fc",
+    "sourceName": "FC_V1SM1",
+    "register": 2146,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_metalico_1_setpoint",
+    "sourceName": "FV_V1SM1",
+    "register": 2147,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_metalico_1_hours",
+    "sourceName": "HS_V2SM1",
+    "register": 2149,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_metalico_1_fc",
+    "sourceName": "FC_V2SM1",
+    "register": 2150,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_metalico_1_setpoint",
+    "sourceName": "FV_V2SM1",
+    "register": 2151,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_metalico_1_hours",
+    "sourceName": "HS_E1SM1",
+    "register": 2153,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_metalico_1_fc",
+    "sourceName": "FC_E1SM1",
+    "register": 2154,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_metalico_1_setpoint",
+    "sourceName": "FV_E1SM1",
+    "register": 2155,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_metalico_1_hours",
+    "sourceName": "HS_E2SM1",
+    "register": 2157,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_metalico_1_fc",
+    "sourceName": "FC_E2SM1",
+    "register": 2158,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_metalico_1_setpoint",
+    "sourceName": "FV_E2SM1",
+    "register": 2159,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_metalico_2_hours",
+    "sourceName": "HS_V1SM2",
+    "register": 2161,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_metalico_2_fc",
+    "sourceName": "FC_V1SM2",
+    "register": 2162,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_1_silo_metalico_2_setpoint",
+    "sourceName": "FV_V1SM2",
+    "register": 2163,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_metalico_2_hours",
+    "sourceName": "HS_V2SM2",
+    "register": 2165,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_metalico_2_fc",
+    "sourceName": "FC_V2SM2",
+    "register": 2166,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "ventilador_2_silo_metalico_2_setpoint",
+    "sourceName": "FV_V2SM2",
+    "register": 2167,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_metalico_2_hours",
+    "sourceName": "HS_E1SM2",
+    "register": 2169,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_metalico_2_fc",
+    "sourceName": "FC_E1SM2",
+    "register": 2170,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_1_silo_metalico_2_setpoint",
+    "sourceName": "FV_E1SM2",
+    "register": 2171,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_metalico_2_hours",
+    "sourceName": "HS_E2SM2",
+    "register": 2173,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_metalico_2_fc",
+    "sourceName": "FC_E2SM2",
+    "register": 2174,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "extractor_2_silo_metalico_2_setpoint",
+    "sourceName": "FV_E2SM2",
+    "register": 2175,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dm1a_hours",
+    "sourceName": "HS_DM1A",
+    "register": 2177,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dm1a_fc",
+    "sourceName": "FC_DM1A",
+    "register": 2178,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dm1a_setpoint",
+    "sourceName": "FV_DM1A",
+    "register": 2179,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dm1b_hours",
+    "sourceName": "HS_DM1B",
+    "register": 2181,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dm1b_fc",
+    "sourceName": "FC_DM1B",
+    "register": 2182,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dm1b_setpoint",
+    "sourceName": "FV_DM1B",
+    "register": 2183,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dm2_hours",
+    "sourceName": "HS_DM2",
+    "register": 2185,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dm2_fc",
+    "sourceName": "FC_DM2",
+    "register": 2186,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dm2_setpoint",
+    "sourceName": "FV_DM2",
+    "register": 2187,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dsa1_hours",
+    "sourceName": "HS_DSA1",
+    "register": 2189,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dsa1_fc",
+    "sourceName": "FC_DSA1",
+    "register": 2190,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dsa1_setpoint",
+    "sourceName": "FV_DSA1",
+    "register": 2191,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dsa2_hours",
+    "sourceName": "HS_DSA2",
+    "register": 2193,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dsa2_fc",
+    "sourceName": "FC_DSA2",
+    "register": 2194,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "dsa2_setpoint",
+    "sourceName": "FV_DSA2",
+    "register": 2195,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "vt_hours",
+    "sourceName": "HS_VT",
+    "register": 2197,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "vt_fc",
+    "sourceName": "FC_VT",
+    "register": 2198,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "vt_setpoint",
+    "sourceName": "FV_VT",
+    "register": 2199,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "aspiracion_noria_1_hours",
+    "sourceName": "HS_ASPN1",
+    "register": 2201,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "aspiracion_noria_1_fc",
+    "sourceName": "FC_ASPN1",
+    "register": 2202,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "aspiracion_noria_1_setpoint",
+    "sourceName": "FV_ASPN1",
+    "register": 2203,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "aspiracion_noria_2_hours",
+    "sourceName": "HS_ASPN2",
+    "register": 2205,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "aspiracion_noria_2_fc",
+    "sourceName": "FC_ASPN2",
+    "register": 2206,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "aspiracion_noria_2_setpoint",
+    "sourceName": "FV_ASPN2",
+    "register": 2207,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "aspiracion_noria_3_hours",
+    "sourceName": "HS_ASPN3",
+    "register": 2209,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "aspiracion_noria_3_fc",
+    "sourceName": "FC_ASPN3",
+    "register": 2210,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "aspiracion_noria_3_setpoint",
+    "sourceName": "FV_ASPN3",
+    "register": 2211,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "noria_1_hours",
+    "sourceName": "HS_N1",
+    "register": 2425,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "noria_1_fc",
+    "sourceName": "FC_N1",
+    "register": 2426,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "noria_1_setpoint",
+    "sourceName": "FV_N1",
+    "register": 2427,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "noria_2_hours",
+    "sourceName": "HS_N2",
+    "register": 2433,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "noria_2_fc",
+    "sourceName": "FC_N2",
+    "register": 2434,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "noria_2_setpoint",
+    "sourceName": "FV_N2",
+    "register": 2435,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "noria_3_hours",
+    "sourceName": "HS_N3",
+    "register": 2441,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "noria_3_fc",
+    "sourceName": "FC_N3",
+    "register": 2442,
+    "words": 1,
+    "type": "uint16",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  },
+  {
+    "tag": "noria_3_setpoint",
+    "sourceName": "FV_N3",
+    "register": 2443,
+    "words": 2,
+    "type": "uint32_swapped",
+    "fc": 3,
+    "readOnly": false,
+    "scale": null
+  }
+]

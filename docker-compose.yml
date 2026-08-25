@@ -79,6 +79,53 @@ services:
       - iot-network
     restart: unless-stopped
 
+  # --- Pinedo real: mismo mapa de registros que el M340 real (export Electroluz) ---
+  # Corren en paralelo al simulador/collector de arriba, que siguen siendo la demo
+  # "bonita" ya mostrada al cliente. Estos dos son la prueba de protocolo real:
+  # Modbus TCP FC03 exacto, listos para apuntar a 172.16.16.180:502 el día que haya
+  # conectividad con la planta (solo cambia PLC_HOST/PLC_PORT del collector-pinedo).
+  plc-simulator-pinedo:
+    build:
+      context: ./apps/plc-simulator-pinedo
+      dockerfile: Dockerfile
+    container_name: iot-plc-simulator-pinedo
+    environment:
+      SIM_HOST: 0.0.0.0
+      SIM_PORT: 502
+      SIM_UNIT_ID: 255
+      SIM_TICK_MS: 1000
+    ports:
+      - "${PLC_SIMULATOR_PINEDO_PORT:-5020}:502"
+    networks:
+      - iot-network
+    restart: unless-stopped
+
+  collector-pinedo:
+    build:
+      context: ./apps/collector-pinedo
+      dockerfile: Dockerfile
+    container_name: iot-collector-pinedo
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PLC_HOST: plc-simulator-pinedo
+      PLC_PORT: 502
+      PLC_UNIT_ID: 255
+      MACHINE_NAME: PLC-PINEDO
+      POSTGRES_HOST: timescaledb
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: ${POSTGRES_DB:-iot_demo}
+      POSTGRES_USER: ${POSTGRES_USER:-iot_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-iot_password}
+      POLL_MS: ${COLLECTOR_PINEDO_INTERVAL_MS:-1000}
+    depends_on:
+      timescaledb:
+        condition: service_healthy
+      plc-simulator-pinedo:
+        condition: service_started
+    networks:
+      - iot-network
+    restart: unless-stopped
+
   processor:
     build:
       context: ./apps/processor
